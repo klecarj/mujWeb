@@ -1,0 +1,127 @@
+/* Celé tělo stránky – flexbox pro správné rozložení */
+body {
+    font-size: 16px;
+    font-family: 'mononoki', sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #F5F5DC;
+    display: flex;
+    justify-content: center; /* Zarovná obsah horizontálně na střed */
+    align-items: center; /* Zarovná obsah vertikálně na střed */
+}
+
+/* Hlavní kontejner pro flexibilní výšku – aby footer zůstal dole */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Hlavička stránky – fixované nahoře */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #ff0000;
+    box-shadow: 0 2px 5px #ff0000(0, 0, 0, 0.3);
+}
+
+/* Navigační panel */
+nav {
+    background-color: #F5F5DC;
+    padding: 10px;
+}
+
+/* Footer – fixovaný dole */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #4B0082;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* Hlavní obsah mezi hlavičkou a footerm */
+main {
+    flex: 1;
+    padding: 20px;
+    margin-top: 80px; /* Aby obsah nezačínal hned pod hlavičkou */
+    margin-bottom: 60px; /* Aby se obsah nezasunul pod footer */
+    max-width: 900px;
+    text-align: left; /* Zarovnání textu doleva */
+}
+
+main h1, main p {
+    margin: 10px 0; /* Přidá mezery mezi nadpisem a texty */
+}
+
+/* Odkazy obecně */
+a {
+    text-decoration: none;
+    color: rgb(34, 19, 19);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #8B0000;
+}
+
+/* Tlačítka */
+.btn-custom {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-custom:hover {
+    background-color: #45a049;
+}
+
+/* Sociální ikony */
+.social-icon {
+    width: 30px;
+    margin: 10px;
+    filter: brightness(0) invert(1);
+    transition: transform 0.3s, filter 0.3s;
+}
+
+/* Rozbalovací panel (accordion) */
+.accordion-button {
+    transition: background-color 0.3s ease;
+}
+
+/* Aby se obsah při rozbalování neprohýbal */
+.accordion-collapse {
+    max-height: 0; /* Skryté při zavřeném panelu */
+    overflow: hidden; /* Skrytý obsah mimo max-height */
+    height: 60px; /* Nastavíme pevnou výšku pro zavřený panel */
+    transition: max-height 0.3s ease-in-out, height 0.3s ease-in-out; /* Plynulý přechod pro výšku */
+}
+
+.accordion-collapse.show {
+    max-height: 500px; /* Maximální výška rozbaleného panelu */
+    height: auto; /* Když je panel otevřený, výška se přizpůsobí obsahu */
+}
+
+/* Při otevření bude mít panel jinou barvu */
+.accordion-button:not(.collapsed) {
+    background-color: #08873f;
+    color: white;
+}
+
+.accordion {
+    width: 500px; /* nebo jakákoliv jiná šířka, kterou si přeješ */
+    margin: 0 auto; /* Aby se to vycentrovalo na stránce */
+}
+
